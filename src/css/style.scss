@@ -1176,6 +1176,11 @@ footer {
                         border-bottom: 1px solid #DAE2E9;
                     }
 
+                    a {
+                        text-decoration: none;
+                        color: #677882;
+                    }
+
                     strong {
                         display: block;
                         color: $color-text-blue;
@@ -2358,7 +2363,11 @@ section {
                 }
             }
 
-            & > strong {
+            a {
+                text-decoration: none;
+            }
+
+            strong {
                 display: block;
                 font-size: 38px;
                 font-weight: 500;
@@ -5318,6 +5327,101 @@ section,
                     top: 0;
                     left: 0;
                 }
+            }
+        }
+    }
+}
+
+#company-content {
+    @media (max-width: $adaptive-width-tablet-middle) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .company-video {
+        display: block;
+        float: right;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        font-size: 17px;
+        font-weight: 700;
+        color: #242424;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 0 5% 25px;
+
+        @media (max-width: $adaptive-width-desktop-middle) {
+            font-size: 13px;
+        }
+
+        &:before {
+            content: '';
+            position: relative;
+            display: block;
+            width: 269px;
+            height: 214px;
+            background: url('../images/video_about_bg.png') no-repeat;
+            background-size: contain;
+            margin: 0 auto 15px;
+            z-index: 2;
+
+            @media (max-width: $adaptive-width-desktop-middle) {
+                width: 188px;
+                height: 150px;
+                margin-bottom: 10px;
+            }
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            width: 60px;
+            height: 70px;
+            background: url('../images/ico_play2.svg') no-repeat;
+            background-size: contain;
+            margin-left: -25px;
+            z-index: 3;
+
+            @media (max-width: $adaptive-width-desktop-middle) {
+                top: 49px;
+                width: 42px; 
+                height: 49px;
+                margin-left: -16px;
+            }
+        }
+
+        & > span {
+            display: block;
+            position: absolute;
+            top: 22px;
+            left: 3px;
+            width: 264px;
+            height: 170px;
+            @include box-shadow(0px, 0px, 100px, rgba(2, 56, 105, 0.7));
+            @include transition-all(0.2s);
+
+            @media (max-width: $adaptive-width-desktop-middle) {
+                top: 13px;
+                left: 3px;
+                width: 179px;
+                height: 120px;
+                @include box-shadow(0px, 0px, 70px, rgba(2, 56, 105, 0.7));
+            }
+
+            @media (max-width: $adaptive-width-tablet-middle) {
+                display: none;
+            }
+        }
+
+        &:hover {
+            & > span {
+                @include box-shadow(0px, 0px, 40px, rgba(2, 56, 105, 1));
+                @include transition-all(0.2s);
             }
         }
     }

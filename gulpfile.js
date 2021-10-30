@@ -24,6 +24,8 @@ const jsFiles = [
 	'./src/js/slick.min.js',
 	/*'./src/js/wow.min.js',
 	'./src/js/cookies_notice.js',*/
+	'./src/js/barba.min.js',
+	'./src/js/preloader.js',
 	'./src/js/common.js',
 	'./src/js/checks.js',
 	'./src/js/messages.js',
@@ -51,17 +53,28 @@ function styles() {
 				.pipe(browserSync.stream());
 }
 
+// function scripts() {
+// 	return gulp.src(jsFiles)
+// 				.pipe(babel({
+// 					presets: ['@babel/preset-env']
+// 				}))
+// 				.pipe(concat('scripts.js'))
+// 				/*
+// 				.pipe(uglify({
+// 					toplevel: true
+// 				}))
+// 				*/
+// 				.pipe(gulp.dest('./assets/js'))
+// 				.pipe(browserSync.stream());
+// }
 function scripts() {
 	return gulp.src(jsFiles)
-				.pipe(babel({
-					presets: ['@babel/preset-env']
-				}))
+				// .pipe(sourcemaps.init())
 				.pipe(concat('scripts.js'))
-				/*
 				.pipe(uglify({
 					toplevel: true
 				}))
-				*/
+				// .pipe(sourcemaps.write())
 				.pipe(gulp.dest('./assets/js'))
 				.pipe(browserSync.stream());
 }
