@@ -1,0 +1,37 @@
+<section>
+            <div id="contacts">
+                <div class="heading">
+                    <div class="info">
+                        <%BREAD_CRUMBS2%>
+
+                        <h1 class="wow fadeInUpSmall fast animated"><%TITLE%></h1>
+
+                        <ul class="contacts">
+                            <li class="address wow fadeInUpSmall fast animated delay-02s">
+                                <h2>Адрес</h2>
+                                <address class="value"><%ADDRESS%></address>
+                            </li>
+                            <li class="tel wow fadeInUpSmall fast animated delay-03s">
+                                <h2>Телефон</h2>
+                                <div class="value">
+                                    <a href="tel:<%TELLINK%>"><%TEL%></a>
+                                    <a href="tel:<%TELLINK2%>"><%TEL2%> (Приёмная)</a>
+                                </div>
+                            </li>
+                            <li class="email wow fadeInUpSmall fast animated delay-04s">
+                                <h2>Почта</h2>
+                                <div class="value">
+                                    <a href="mailto:<%EMAIL%>"><%EMAIL%></a>
+                                    <a href="mailto:<%EMAIL2%>"><%EMAIL2%> (Приёмная)</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="map-holder">
+                        <div id="map" data-coords="<%COORDS%>"></div>
+                    </div>
+                </div>
+            </div>
+
+            <%BLOCK_FEEDBACK%>
+        </section>

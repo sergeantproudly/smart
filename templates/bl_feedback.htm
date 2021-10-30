@@ -1,0 +1,22 @@
+<div id="bl-feedback">
+                <div class="holder">
+                    <h2><%TITLE%></h2>
+                    <div class="text"><%TEXT%></div>
+
+                    <form action="/ajax--act-Feedback/" method="post" data-submit="sendFeedback">
+                        <div class="line">
+                            <input type="text" name="name" placeholder="Ваше имя" maxlength="255" class="name">
+                            <input type="tel" name="tel" placeholder="Номер телефона" maxlength="255" class="tel">
+                            <input type="email" name="email" placeholder="Email" maxlength="255" class="email">
+                        </div>
+                        <div class="line">
+                            <textarea name="text" placeholder="Текст вопроса"></textarea>
+                        </div>
+
+                        <div class="cb-line"><input type="checkbox" name="agree" id="agreement" checked="checked"><label for="agreement">Я даю согласие на обработку своих <a href="/privacy-policy/">персональных данных</a></label></div>
+                        <div class="btn-line"><input type="submit" name="submit_btn" class="btn type2" value="Отправить"/></div>
+
+                        <input type="hidden" name="code" value="<%CODE%>">
+                    </form>
+                </div>
+            </div>

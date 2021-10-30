@@ -1,0 +1,12 @@
+email/
+import1c/
+node_modules/
+vendor/
+old/
+.vscode/
+.idea/
+error.log
+*.zip
+*.gzip
+robots.txt
+.htaccess

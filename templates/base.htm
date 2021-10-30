@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="keywords" content="<%META_KEYWORDS%>"/>
+	<meta name="description" content="<%META_DESCRIPTION%>"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png?v2">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png?v2">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png?v2">
+	<link rel="manifest" href="/assets/images/site.webmanifest?v2">
+	<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg?v2" color="#5bbad5">
+	<link rel="shortcut icon" href="favicon.ico?v2">
+	<meta name="msapplication-TileColor" content="#023869">
+	<meta name="msapplication-config" content="assets/images/browserconfig.xml?v2">
+	<meta name="theme-color" content="#023869">
+	<title><%PAGE_TITLE%></title>
+	<%META_VERIFICATION%>
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="<%PAGE_TITLE%>"/>
+	<meta property="og:description" name="description" content="<%META_DESCRIPTION%>"/>
+	<meta property="og:image" content="<%META_IMAGE%>"/>
+	<style type="text/css">
+        #page-preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:#023869;z-index:1000;opacity:1;-webkit-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1);-webkit-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);-moz-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);-o-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);-webkit-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1);-webkit-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005);-moz-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005);-o-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005);transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005)}#page-preloader.release{width:334px;-webkit-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1);-webkit-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);-moz-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);-o-transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);transition:all 800ms cubic-bezier(0.080,0.990,0.410,1.005);-webkit-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1);-webkit-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005);-moz-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005);-o-transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005);transition-timing-function:cubic-bezier(0.080,0.990,0.410,1.005)}@media (max-width: 1350px){#page-preloader.release{width:290px}}@media (max-width: 1000px){#page-preloader.release{width:0}}#page-preloader .loader{position:fixed;top:50%;left:50%;width:112px;height:117px;margin:-58px 0 0 -56px}#page-preloader .loader .container{position:relative;width:100%;height:100%}#page-preloader .loader .logo-sprite{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-size:contain}#page-preloader .loader .logo-sprite.s1{background-image:url(/assets/images/_sprite_logo1.svg)}#page-preloader .loader .logo-sprite.s2{background-image:url(/assets/images/_sprite_logo2.svg)}#page-preloader .loader .logo-sprite.s3{background-image:url(/assets/images/_sprite_logo3.svg)}#page-preloader .loader .logo-sprite.s4{background-image:url(/assets/images/_sprite_logo4.svg)}#page-preloader .loader .logo-sprite.s5{background-image:url(/assets/images/_sprite_logo5.svg)}#page-preloader .loader .logo-sprite.s6{background-image:url(/assets/images/_sprite_logo6.svg)}
+    </style>
+    <link type="text/css" rel="stylesheet" href="/assets/css/style.css<%VERSION%>"/>
+    <%ANALYTICS%>
+</head>
+
+<body>
+    <div id="page-preloader">
+        <div class="loader">
+            <div class="container">
+                <div class="logo-sprite s1"></div>
+                <div class="logo-sprite s2"></div>
+                <div class="logo-sprite s3"></div>
+                <div class="logo-sprite s4"></div>
+                <div class="logo-sprite s5"></div>
+                <div class="logo-sprite s6"></div>
+            </div>
+        </div>
+    </div>
+    <%YANDEX_METRIKA%>
+
+    <header>
+        <a href="/" id="logo"><img src="/assets/images/logo_inverted.svg" alt="<%SITE_TITLE_ALT%>" title="<%SITE_TITLE_ALT%>"></a>
+        <nav>
+            <%MN_MAIN%>
+
+            <a href="tel:<%TELLINK%>" id="phone"><%TEL%></a>
+            <address id="address"><%ADDRESS%></address>
+        </nav>
+    </header>
+    <div id="layout">
+        <%BREAD_CRUMBS%>
+        
+        <%CONTENT%>
+    </div>
+
+    <footer>
+        <div class="holder">
+            <a href="/" class="logo"><img src="/assets/images/logo.svg" alt="<%SITE_TITLE_ALT%>" title="<%SITE_TITLE_ALT%>"></a>
+            <div id="copyrights"><%COPYRIGHT%></div>
+            <%MN_BOTTOM%>
+            <div id="we">Сделано в <a href="https://proudly.ru" target="_blank"><img src="/assets/images/we.svg" alt="Proudly - Разработка сайтов для бизнеса" title="Proudly - Разработка сайтов для бизнеса"></a></div>
+        </div>
+    </footer>
+
+    <div class="modal-fadeout"></div>
+
+    <%MODALS%>
+
+    <%CONSULTANT%>
+
+    <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script type="text/javascript" src="/assets/js/scripts.js<%VERSION%>"></script>
+    <%SCRIPTS%>
+</body>
+</html>
