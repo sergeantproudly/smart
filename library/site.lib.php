@@ -154,7 +154,7 @@
 		    	'<%BLOCK9%>'				=> '',
 		    	'<%BLOCK10%>'				=> '',
 		    	'<%BLOCK11%>'				=> $Blocks->BlockContacts(),
-		    	'<%YEAR%>' => 				=> date('Y'),
+		    	'<%YEAR%>'  				=> date('Y'),
 			));
 
 			return $this->SetLinks($result);
