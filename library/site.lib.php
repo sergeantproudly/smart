@@ -136,7 +136,7 @@
 		    	'<%MN_MAIN%>'				=> $menuMain->GetMenu(),
 		    	'<%LAYOUTCLASS%>'			=> '',
 		    	'<%BREAD_CRUMBS%>'			=> '',
-		    	'<%COPYRIGHT%>'				=> $this->settings->GetSetting('Copyright'),
+		    	'<%COPYRIGHT%>'				=> str_replace('<%YEAR%>', date('Y'), $this->settings->GetSetting('Copyright')),
 		    	'<%DIRECTION%>'				=> $this->settings->GetSetting('Direction'),
 		    	'<%MN_BOTTOM%>'				=> $menuBottom->GetMenu(),
 		    	'<%MODALS%>'				=> $this->GetModals(),
