@@ -71,7 +71,8 @@ function Preloader(fullPreload) {
 	}
 
 	// load event
-	$(window).on('load', function() {
+	//$(window).on('load', function() {
+	$(document).ready(function() {
 		self.fload = true;
 
 		if (self.fanim) {
