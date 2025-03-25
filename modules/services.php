@@ -120,7 +120,7 @@ class services extends krn_abstract{
 				krnLoadLib('youtube');
 
 				global $Site;
-				$Site->addScript('https://www.youtube.com/iframe_api');
+				//$Site->addScript('https://www.youtube.com/iframe_api');
 				$youtube = new Youtube();
 				$modalVideo = new Modal('video', ['VideoId' => '0']);
 				$Site->addModal($modalVideo->getModal());

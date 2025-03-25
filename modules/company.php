@@ -87,7 +87,7 @@ class company extends krn_abstract{
 			krnLoadLib('youtube');
 
 			global $Site;
-			$Site->addScript('https://www.youtube.com/iframe_api');
+			//$Site->addScript('https://www.youtube.com/iframe_api');
 			$youtube = new Youtube();
 			$modalVideo = new Modal('video', ['VideoId' => '0']);
 			$Site->addModal($modalVideo->getModal());
@@ -221,7 +221,7 @@ class company extends krn_abstract{
 		krnLoadLib('youtube');
 
 		global $Site;
-		$Site->addScript('https://www.youtube.com/iframe_api');
+		//$Site->addScript('https://www.youtube.com/iframe_api');
 
 		$elementPhoto = LoadTemplate('gallery_photos_el');
 		$elementVideo = LoadTemplate('gallery_videos_el');
