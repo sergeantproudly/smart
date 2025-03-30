@@ -34,12 +34,18 @@
 	}
     
     // код страницы
-    function krnGetPageCode(){
-    	global $_LEVEL;
-
-		return $_LEVEL['3'] && !preg_match('/^[\d]+$/', $_LEVEL['3']) ? $_LEVEL['3'] : 
-			$_LEVEL['2'] && !preg_match('/^[\d]+$/', $_LEVEL['2']) ? $_LEVEL['2'] : 
-			$_LEVEL['1'] ?: 'main';
+	function krnGetPageCode() {
+		global $_LEVEL;
+	
+		if ($_LEVEL['3'] && !preg_match('/^[\d]+$/', $_LEVEL['3'])) {
+			return $_LEVEL['3'];
+		} elseif ($_LEVEL['2'] && !preg_match('/^[\d]+$/', $_LEVEL['2'])) {
+			return $_LEVEL['2'];
+		} elseif ($_LEVEL['1']) {
+			return $_LEVEL['1'];
+		} else {
+			return 'main';
+		}
 	}
 	
 	// модуль страницы
@@ -105,12 +111,12 @@
 			$this->Set($params);
 		}
 		
-		function Set($params=array()){
-			if($params){
-				foreach($params as $k=>$v){
-					$k{0}=strtolower($k{0});
-					if(isset($this->$k)){
-						$this->$k=$v;
+		function Set($params = array()) {
+			if ($params) {
+				foreach ($params as $k => $v) {
+					$k[0] = strtolower($k[0]);
+					if (isset($this->$k)) {
+						$this->$k = $v;
 					}
 				}
 			}

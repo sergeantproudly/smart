@@ -4,12 +4,12 @@
       $Config['Db']['Host']   = 'localhost';
       $Config['Db']['Login']  = 'root';
       $Config['Db']['Pswd']   = '';
-      $Config['Db']['DbName'] = 'smart';  
+      $Config['Db']['DbName'] = 'smartenerg_new';  
 
    } else {
       $Config['Db']['Host']   = 'localhost';
-      $Config['Db']['Login']  = 'smartenerg_new';
-      $Config['Db']['Pswd']   = 'sd4ugmRe';
+      $Config['Db']['Login']  = 'root';
+      $Config['Db']['Pswd']   = '';
       $Config['Db']['DbName'] = 'smartenerg_new';  
    }
    	

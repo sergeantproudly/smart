@@ -373,47 +373,53 @@ $(document).ready(function() {
 
 		// MEDIA GALLERY VIDEO
 		if ($('#gallery .video').length) {
-			$('#gallery .video').each(function(i, item) {
-				$(item).children('.js-modal-link').click(function() {
-					var player = $('#js-youtube-video').data('player');
-					var code = $(this).attr('data-video-code');
-					new YT.Player('js-youtube-video', {
-						height: '100%',
-			    		width: '100%',
-					    videoId: code,
-					    playerVars: { 'autoplay': 1, 'controls': 0 }
+			$('#gallery .video').each(function () {
+				$(this).children('.js-modal-link').click(function () {
+					var videoId = $(this).attr('data-video-code');
+					var ownerId = $(this).attr('data-owner-id');
+					var vkVideoUrl = `https://vk.com/video_ext.php?oid=${ownerId}&id=${videoId}&hd=2&autoplay=1`;
+	
+		
+					var iframe = $('<iframe>', {
+						src: vkVideoUrl,
+						frameborder: 0,
+						allow: 'autoplay; encrypted-media',
+						allowfullscreen: true,
+						width: '100%',
+						height: '100%'
 					});
-					player.loadVideoById(code);
-					player.playVideo();
+		
+					$('#js-vk-video').empty().append(iframe);
 				});
 			});
-
-			$('#modal-video .modal-close').click(function() {
-				var player = $('#js-youtube-video').data('player');
-				player.pauseVideo();
-				player.stopVideo();
+	
+			$('#modal-video .modal-close').click(function () {
+				$('#js-vk-video').empty();
 			});
 		}
 
 		// COMPANY VIDEO
 		if ($('#js-company-video').length) {
-			$('#js-company-video').click(function() {
-				var player = $('#js-youtube-video').data('player');
-				var code = $(this).attr('data-video-code');
-				new YT.Player('js-youtube-video', {
-					height: '100%',
-			    	width: '100%',
-				    videoId: code,
-				    playerVars: { 'autoplay': 1, 'controls': 0 }
-				});
-				player.loadVideoById(code);
-				player.playVideo();
-			});
+			$('#js-company-video').click(function () {
+				var videoId = $(this).attr('data-video-code');
+				var ownerId = $(this).attr('data-owner-id');
+				var vkVideoUrl = `https://vk.com/video_ext.php?oid=${ownerId}&id=${videoId}&hd=2&autoplay=1`;
 
-			$('#modal-video .modal-close').click(function() {
-				var player = $('#js-youtube-video').data('player');
-				player.pauseVideo();
-				player.stopVideo();
+	
+				var iframe = $('<iframe>', {
+					src: vkVideoUrl,
+					frameborder: 0,
+					allow: 'autoplay; encrypted-media',
+					allowfullscreen: true,
+					width: '100%',
+					height: '100%'
+				});
+	
+				$('#js-vk-video').empty().append(iframe);
+			});
+	
+			$('#modal-video .modal-close').click(function () {
+				$('#js-vk-video').empty();
 			});
 		}
 	}
@@ -504,13 +510,3 @@ $(document).ready(function() {
     }
 });
 
-// YOUTUBE VIDEO INIT
-if ($('#js-youtube-video').length) {
-	function onYouTubeIframeAPIReady() {
-		var player = new YT.Player('js-youtube-video', {
-		    height: '100%',
-		    width: '100%'
-		});
-		$('#js-youtube-video').data('player', player);
-	}
-}

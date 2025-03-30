@@ -1,23 +1,25 @@
-$font-main: 'Gotham Pro', 'Arial';
+@use "sass:color";
+
+$font-main: "Gotham Pro", "Arial";
 $background-color-blue: #023869;
-$background-color-lightgray: #E2EAF0;
-$background-color-gray: #D4E0EA;
-$background-color-yellow: #F3B50A;
+$background-color-lightgray: #e2eaf0;
+$background-color-gray: #d4e0ea;
+$background-color-yellow: #f3b50a;
 $color-text: #111;
-$color-text-black: #102C44;
+$color-text-black: #102c44;
 $color-text-blue: $background-color-blue;
 $color-button: $background-color-blue;
-$color-button-hover: #022E56;
-$color-button-active: #00203E;
+$color-button-hover: #022e56;
+$color-button-active: #00203e;
 $color-button-disabled: #b4c4d2;
-$color-button-text: #FFF;
-$color-button-text-hover: #FFF;
-$color-button-text-active: #FFF;
+$color-button-text: #fff;
+$color-button-text-hover: #fff;
+$color-button-text-active: #fff;
 $color-button-text-disabled: #6092c8;
-$color-button2: #F3B50A;
-$color-button2-hover: darken(#F3B50A, 3%);
-$color-button2-active: darken(#F3B50A, 5%);
-$color-button2-disabled: lighten(#F3B50A, 5%);
+$color-button2: #f3b50a;
+$color-button2-hover: color.adjust(#f3b50a, $lightness: -3%);
+$color-button2-active: color.adjust(#f3b50a, $lightness: -5%);
+$color-button2-disabled: color.adjust(#f3b50a, $lightness: 5%);
 $color-button2-text: #023869;
 $color-button2-text-hover: #023869;
 $color-button2-text-active: #023869;
@@ -36,10 +38,10 @@ $adaptive-width-tablet-small: 640px;
 $adaptive-width-mobile: 540px;
 
 @mixin radius($radius) {
-    -moz-border-radius: $radius;
-	-webkit-border-radius: $radius;
-	-khtml-border-radius: $radius;
 	border-radius: $radius;
+	-khtml-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
 }
 @mixin radius-lt($radius) {
 	-moz-border-radius-topleft: $radius;
@@ -62,20 +64,20 @@ $adaptive-width-mobile: 540px;
 	border-bottom-right-radius: $radius;
 }
 @mixin radius-t($radius) {
-    @include radius-lt($radius);
-    @include radius-rt($radius);
+	@include radius-lt($radius);
+	@include radius-rt($radius);
 }
 @mixin radius-l($radius) {
-    @include radius-lt($radius);
-    @include radius-lb($radius);
+	@include radius-lt($radius);
+	@include radius-lb($radius);
 }
 @mixin radius-r($radius) {
-    @include radius-rt($radius);
-    @include radius-rb($radius);
+	@include radius-rt($radius);
+	@include radius-rb($radius);
 }
 @mixin radius-b($radius) {
-    @include radius-lb($radius);
-    @include radius-rb($radius);
+	@include radius-lb($radius);
+	@include radius-rb($radius);
 }
 @mixin box-shadow($a, $b, $c, $d) {
 	box-shadow: $a $b $c $d;
@@ -89,7 +91,7 @@ $adaptive-width-mobile: 540px;
 }
 @mixin flex-cancel() {
 	display: block;
-    flex: 0 0 auto;
+	flex: 0 0 auto;
 }
 @mixin scale($scale) {
 	-webkit-transform: scale($scale);
@@ -150,7 +152,9 @@ $adaptive-width-mobile: 540px;
 @mixin edge-left() {
 	left: $padding-edges;
 	@media (max-width: $adaptive-width-tablet) {
-		left: $padding-edges-tablet;
+		& {
+			left: $padding-edges-tablet;
+		}
 	}
 	@media (max-width: $adaptive-width-tablet-small) {
 		left: $padding-edges-tablet-small;
@@ -158,6 +162,7 @@ $adaptive-width-mobile: 540px;
 }
 @mixin edge-right() {
 	right: $padding-edges;
+
 	@media (max-width: $adaptive-width-tablet) {
 		right: $padding-edges-tablet;
 	}
@@ -184,12 +189,12 @@ $adaptive-width-mobile: 540px;
 	}
 }
 @mixin width-without-edges() {
-	width: calc(100% - #{$padding-edges*2});
+	width: calc(100% - #{$padding-edges * 2});
 	@media (max-width: $adaptive-width-tablet) {
-		width: calc(100% - #{$padding-edges-tablet*2});
+		width: calc(100% - #{$padding-edges-tablet * 2});
 	}
 	@media (max-width: $adaptive-width-tablet-small) {
-		width: calc(100% - #{$padding-edges-tablet-small*2});
+		width: calc(100% - #{$padding-edges-tablet-small * 2});
 	}
 }
 .holder {
@@ -204,16 +209,16 @@ $adaptive-width-mobile: 540px;
 		padding: 0 $padding-edges-tablet-small;
 	}
 }
-@mixin padding-edges($coef:1) {
-	padding-left: $padding-edges*$coef;
-	padding-right: $padding-edges*$coef;
+@mixin padding-edges($coef: 1) {
+	padding-left: $padding-edges * $coef;
+	padding-right: $padding-edges * $coef;
 	@media (max-width: $adaptive-width-tablet) {
-		padding-left: $padding-edges-tablet*$coef;
-		padding-right: $padding-edges-tablet*$coef;
+		padding-left: $padding-edges-tablet * $coef;
+		padding-right: $padding-edges-tablet * $coef;
 	}
 	@media (max-width: $adaptive-width-tablet-small) {
-		padding-left: $padding-edges-tablet-small*$coef;
-		padding-right: $padding-edges-tablet-small*$coef;
+		padding-left: $padding-edges-tablet-small * $coef;
+		padding-right: $padding-edges-tablet-small * $coef;
 	}
 }
 .al-left {
@@ -247,17 +252,19 @@ $adaptive-width-mobile: 540px;
 .wrap {
 	position: relative;
 }
-blockquote, q{
+blockquote,
+q {
 	quotes: none;
 }
 blockquote::before,
 blockquote::after,
 q::before,
-q::after{
-	content: '';
+q::after {
+	content: "";
 	content: none;
 }
-b,strong{
+b,
+strong {
 	font-weight: 700;
 }
 .btn {
@@ -282,7 +289,7 @@ b,strong{
 	}
 
 	&:active {
-		background-color: $color-button-active;	
+		background-color: $color-button-active;
 		color: $color-button-text-active;
 		@extend .transition-all;
 	}
@@ -315,7 +322,7 @@ b,strong{
 		}
 
 		&:active {
-			background-color: $color-button2-active;	
+			background-color: $color-button2-active;
 			color: $color-button2-text-active;
 		}
 
@@ -340,33 +347,33 @@ b,strong{
 		font-weight: 400;
 		background-color: transparent;
 		color: #454545;
-		border: 1px solid #E0E0E0;
+		border: 1px solid #e0e0e0;
 		@include box-shadow-cancel();
 
 		&:hover {
-			border-color: darken(#E0E0E0, 20%);
-			color: darken(#454545, 20%);
+			border-color: color.adjust(#e0e0e0, $lightness: -20%);
+			color: color.adjust(#454545, $lightness: -20%);
 		}
 
 		&:active {
-			border-color: darken(#E0E0E0, 25%);
-			color: darken(#454545, 25%);
+			border-color: color.adjust(#e0e0e0, $lightness: -25%);
+			color: color.adjust(#454545, $lightness: -25%);
 		}
 	}
 }
-.dashed{
+.dashed {
 	cursor: pointer;
 	border-bottom: 1px dashed;
 }
-.dotted{
+.dotted {
 	cursor: pointer;
 	border-bottom: 1px dotted;
 }
-a.dashed{
+a.dashed {
 	text-decoration: none;
 	border-bottom: 1px dashed;
 }
-a.dotted{
+a.dotted {
 	text-decoration: none;
 	border-bottom: 1px dotted;
 }
@@ -408,8 +415,8 @@ a.dotted{
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	outline: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
 }
 @mixin select-deny() {
 	-ms-user-select: none;
@@ -417,56 +424,56 @@ a.dotted{
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	outline: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
 }
 .transition-all {
-    -webkit-transition: all $animation-speed ease;
-   	-moz-transition: all $animation-speed ease;
-   	-o-transition: all $animation-speed ease;
-    transition: all $animation-speed ease;
+	-webkit-transition: all $animation-speed ease;
+	-moz-transition: all $animation-speed ease;
+	-o-transition: all $animation-speed ease;
+	transition: all $animation-speed ease;
 }
 .transition-color {
-    -webkit-transition: color $animation-speed ease;
-   	-moz-transition: color $animation-speed ease;
-   	-o-transition: color $animation-speed ease;
-    transition: color $animation-speed ease;
+	-webkit-transition: color $animation-speed ease;
+	-moz-transition: color $animation-speed ease;
+	-o-transition: color $animation-speed ease;
+	transition: color $animation-speed ease;
 }
 .transition-bg {
-    -webkit-transition: background-color $animation-speed ease;
-   	-moz-transition: background-color $animation-speed ease;
-   	-o-transition: background-color $animation-speed ease;
-    transition: background-color $animation-speed ease;
+	-webkit-transition: background-color $animation-speed ease;
+	-moz-transition: background-color $animation-speed ease;
+	-o-transition: background-color $animation-speed ease;
+	transition: background-color $animation-speed ease;
 }
 .transition-border {
-    -webkit-transition: border-color $animation-speed ease;
-   	-moz-transition: border-color $animation-speed ease;
-   	-o-transition: border-color $animation-speed ease;
-    transition: border-color $animation-speed ease;
+	-webkit-transition: border-color $animation-speed ease;
+	-moz-transition: border-color $animation-speed ease;
+	-o-transition: border-color $animation-speed ease;
+	transition: border-color $animation-speed ease;
 }
 .transition-opacity {
-    -webkit-transition: opacity $animation-speed ease;
-   	-moz-transition: opacity $animation-speed ease;
-   	-o-transition: opacity $animation-speed ease;
-    transition: opacity $animation-speed ease;
+	-webkit-transition: opacity $animation-speed ease;
+	-moz-transition: opacity $animation-speed ease;
+	-o-transition: opacity $animation-speed ease;
+	transition: opacity $animation-speed ease;
 }
 .transition-padding-top {
 	-webkit-transition: padding-top $animation-speed ease;
-   	-moz-transition: padding-top $animation-speed ease;
-   	-o-transition: padding-top $animation-speed ease;
-    transition: padding-top $animation-speed ease;
+	-moz-transition: padding-top $animation-speed ease;
+	-o-transition: padding-top $animation-speed ease;
+	transition: padding-top $animation-speed ease;
 }
 .transition-height {
-    -webkit-transition: height $animation-speed ease;
-   	-moz-transition: height $animation-speed ease;
-   	-o-transition: height $animation-speed ease;
-    transition: height $animation-speed ease;
+	-webkit-transition: height $animation-speed ease;
+	-moz-transition: height $animation-speed ease;
+	-o-transition: height $animation-speed ease;
+	transition: height $animation-speed ease;
 }
 .transition-none {
-    -webkit-transition: none;
-   	-moz-transition: none;
-   	-o-transition: none;
-    transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
 }
 .rotate-180-start {
 	-moz-transform: rotate(0deg);
@@ -485,10 +492,10 @@ a.dotted{
 	@extend .transition-all;
 }
 @mixin transition-all($speed) {
-    -webkit-transition: all $speed linear;
-   	-moz-transition: all $speed linear;
-   	-o-transition: all $speed linear;
-    transition: all $speed linear;
+	-webkit-transition: all $speed linear;
+	-moz-transition: all $speed linear;
+	-o-transition: all $speed linear;
+	transition: all $speed linear;
 }
 @mixin rotate-start() {
 	-moz-transform: rotate(0deg);
@@ -522,14 +529,14 @@ a.dotted{
 	overflow: hidden;
 
 	&:after {
-		content: '';
+		content: "";
 		display: block;
 		position: absolute;
 		top: 0;
 		right: 0;
 		width: 45%;
 		height: 100%;
-		background: linear-gradient(90deg, rgba(255, 255, 255, 0.0001) 0%, #FFFFFF 100%);
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0.0001) 0%, #ffffff 100%);
 	}
 
 	&.scrolled-full {
@@ -540,33 +547,73 @@ a.dotted{
 }
 .rotation180 {
 	-webkit-animation: rotation180 1.5s infinite linear;
-    -moz-animation: rotation180 1.5s infinite linear;
-    -ms-animation: rotation180 1.5s infinite linear;
-    -o-animation: rotation180 1.5s infinite linear;
-    animation: rotation180 1.5s infinite linear; 
-    -webkit-backface-visibility: hidden;
-    transform: translate3d(0,0,0);
+	-moz-animation: rotation180 1.5s infinite linear;
+	-ms-animation: rotation180 1.5s infinite linear;
+	-o-animation: rotation180 1.5s infinite linear;
+	animation: rotation180 1.5s infinite linear;
+	-webkit-backface-visibility: hidden;
+	transform: translate3d(0, 0, 0);
 }
-@-webkit-keyframes rotation180 { to { -webkit-transform: rotate(180deg); }}
-@-moz-keyframes rotation180 { to { -moz-transform: rotate(180deg); }}
-@-ms-keyframes rotation180 { to { -ms-transform: rotate(180deg); }}
-@-o-keyframes rotation180 { to { -o-transform: rotate(180deg); }}
-@keyframes rotation180 { to { transform: rotate(180deg); }}
+@-webkit-keyframes rotation180 {
+	to {
+		-webkit-transform: rotate(180deg);
+	}
+}
+@-moz-keyframes rotation180 {
+	to {
+		-moz-transform: rotate(180deg);
+	}
+}
+@-ms-keyframes rotation180 {
+	to {
+		-ms-transform: rotate(180deg);
+	}
+}
+@-o-keyframes rotation180 {
+	to {
+		-o-transform: rotate(180deg);
+	}
+}
+@keyframes rotation180 {
+	to {
+		transform: rotate(180deg);
+	}
+}
 
 .rotation360 {
 	-webkit-animation: rotation360 1.5s infinite linear;
-    -moz-animation: rotation360 1.5s infinite linear;
-    -ms-animation: rotation360 1.5s infinite linear;
-    -o-animation: rotation360 1.5s infinite linear;
-    animation: rotation360 1.5s infinite linear; 
-    -webkit-backface-visibility: hidden;
-    transform: translate3d(0,0,0);
+	-moz-animation: rotation360 1.5s infinite linear;
+	-ms-animation: rotation360 1.5s infinite linear;
+	-o-animation: rotation360 1.5s infinite linear;
+	animation: rotation360 1.5s infinite linear;
+	-webkit-backface-visibility: hidden;
+	transform: translate3d(0, 0, 0);
 }
-@-webkit-keyframes rotation360 { to { -webkit-transform: rotate(360deg); }}
-@-moz-keyframes rotation360 { to { -moz-transform: rotate(360deg); }}
-@-ms-keyframes rotation360 { to { -ms-transform: rotate(360deg); }}
-@-o-keyframes rotation360 { to { -o-transform: rotate(360deg); }}
-@keyframes rotation360 { to { transform: rotate(360deg); }}
+@-webkit-keyframes rotation360 {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes rotation360 {
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes rotation360 {
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+@-o-keyframes rotation360 {
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+@keyframes rotation360 {
+	to {
+		transform: rotate(360deg);
+	}
+}
 
 .slick-dots {
 	text-align: center !important;
@@ -578,7 +625,7 @@ a.dotted{
 	flex: 0 0 auto !important;
 	display: block !important;
 
-	&>li {
+	& > li {
 		display: inline-block !important;
 		vertical-align: middle !important;
 		width: 12px !important;
@@ -593,13 +640,13 @@ a.dotted{
 		opacity: 0.2;
 		background: none !important;
 		min-height: 0 !important;
-		box-shadow: 0px 0px 0px rgba(0,0,0,0) !important;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) !important;
 		flex: 0 0 auto !important;
 		@extend .transition-opacity;
 
 		@media (max-width: $adaptive-width-mobile) {
 			width: 8px !important;
-			height: 8px !important; 
+			height: 8px !important;
 			padding: 5px !important;
 		}
 
@@ -608,7 +655,7 @@ a.dotted{
 			padding-left: 8px !important;
 		}
 
-		&:last-child{
+		&:last-child {
 			padding-right: 8px !important;
 		}
 
@@ -626,13 +673,13 @@ a.dotted{
 			opacity: 1;
 			@extend .transition-opacity;
 
-			&>button {
-				background-color: #15295B;
+			& > button {
+				background-color: #15295b;
 			}
 		}
 
-		&>button {
-			content: '';
+		& > button {
+			content: "";
 			display: block;
 			position: absolute;
 			top: 7px;
@@ -640,11 +687,11 @@ a.dotted{
 			width: 12px;
 			height: 12px;
 			padding: 0;
-			@include radius(12px);
-			background: #15295B;
+			background: #15295b;
 			font-size: 0;
-			border: 0; 
+			border: 0;
 			cursor: pointer;
+			@include radius(12px);
 
 			@media (max-width: $adaptive-width-mobile) {
 				width: 8px;
@@ -655,12 +702,12 @@ a.dotted{
 }
 
 @mixin column-count($count, $gap) {
-	-moz-column-count: $count;    
-    -webkit-column-count: $count;    
-    column-count: $count;
-    -moz-column-gap: $gap;
-    -webkit-column-gap: $gap;
-    column-gap: $gap;
+	-moz-column-count: $count;
+	-webkit-column-count: $count;
+	column-count: $count;
+	-moz-column-gap: $gap;
+	-webkit-column-gap: $gap;
+	column-gap: $gap;
 }
 @mixin contain() {
 	max-width: 100%;
@@ -676,10 +723,12 @@ a.dotted{
 	object-fit: cover;
 	-o-object-fit: cover;
 }
-@mixin transition($style:all, $speed:$animation-speed, $easing:ease, $delay:0) {
+@mixin transition($style: all, $speed: $animation-speed, $easing: ease, $delay: 0) {
 	-webkit-transition: $style $speed $easing;
-   	-moz-transition: $style $speed $easing;
-   	-o-transition: $style $speed $easing;
-    transition: $style $speed $easing;
-    @if $delay != 0 { transition-delay: $delay; }
+	-moz-transition: $style $speed $easing;
+	-o-transition: $style $speed $easing;
+	transition: $style $speed $easing;
+	@if $delay != 0 {
+		transition-delay: $delay;
+	}
 }
