@@ -187,18 +187,22 @@ class blocks extends krn_abstract{
 
 			} else {
 				krnLoadLib('modal');
-				krnLoadLib('youtube');
+				//krnLoadLib('youtube');
+				krnLoadLib('vkvideo');
 
 				global $Site;
 				//$Site->addScript('https://www.youtube.com/iframe_api');
-				$youtube = new Youtube();
+				//$youtube = new Youtube();
+				$vkvideo = new VkVideo();
 				$modalVideo = new Modal('video', ['VideoId' => '0']);
 				$Site->addModal($modalVideo->getModal());
 
 				$content .= strtr($elementVideo, [
 					'<%TITLE%>'		=> $service['Title'],
 					'<%ALT%>'		=> htmlspecialchars($service['Title'], ENT_QUOTES),
-					'<%CODE%>'		=> $youtube->GetCodeFromSource($this->settings->GetSetting('YoutubeCode')),
+					//'<%CODE%>'		=> $youtube->GetCodeFromSource($this->settings->GetSetting('YoutubeCode')),
+					'<%CODE%>'		=> $vkvideo->GetCodeFromSource($this->settings->GetSetting('VkVideoCode')),
+					'<%OWNER%>'		=> $vkvideo->GetOwnerFromSource($this->settings->GetSetting('VkVideoCode')),
 					'<%IMAGE%>'		=> $service['Image'],
 					'<%I%>'			=> $counter
 				]);

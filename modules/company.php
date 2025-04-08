@@ -84,16 +84,20 @@ class company extends krn_abstract{
 
 		if ($page['Code'] == 'company' && !$this->folder['Code']) {
 			krnLoadLib('modal');
-			krnLoadLib('youtube');
+			//krnLoadLib('youtube');
+			krnLoadLib('vkvideo');
 
 			global $Site;
 			//$Site->addScript('https://www.youtube.com/iframe_api');
-			$youtube = new Youtube();
+			//$youtube = new Youtube();
+			$vkvideo = new VkVideo();
 			$modalVideo = new Modal('video', ['VideoId' => '0']);
 			$Site->addModal($modalVideo->getModal());
 
 			$result = strtr($result, array(
-				'<%CODE%>'	=> $youtube->GetCodeFromSource($this->settings->GetSetting('YoutubeCode'))
+				//'<%CODE%>'	=> $youtube->GetCodeFromSource($this->settings->GetSetting('YoutubeCode')),
+				'<%CODE%>'	=> $vkvideo->GetCodeFromSource($this->settings->GetSetting('VkVideoCode')),
+				'<%OWNER%>'	=> $vkvideo->GetOwnerFromSource($this->settings->GetSetting('VkVideoCode')),
 			));
 		}
 
@@ -218,7 +222,8 @@ class company extends krn_abstract{
 
 	public function GetMediaGallery() {
 		krnLoadLib('modal');
-		krnLoadLib('youtube');
+		//krnLoadLib('youtube');
+		krnLoadLib('vkvideo');
 
 		global $Site;
 		//$Site->addScript('https://www.youtube.com/iframe_api');
@@ -233,10 +238,12 @@ class company extends krn_abstract{
 			$content .= SetAtribs($elementPhoto, $photo);
 		}
 
-		$youtube = new Youtube();
-		$videos = $this->db->getAll('SELECT Id, Title, Code AS SourceCode, Cover896_548 AS Cover FROM media_videos WHERE GalleryId = (SELECT Id FROM media_galleries WHERE Code = ?s) ORDER BY IF (`Order`, -1000/`Order`, 0)', $this->galleryCode);
+		//$youtube = new Youtube();
+		$vkvideo = new VkVideo();
+		$videos = $this->db->getAll('SELECT Id, Title, CodeVkVideo AS SourceCode, Cover896_548 AS Cover FROM media_videos WHERE GalleryId = (SELECT Id FROM media_galleries WHERE Code = ?s) ORDER BY IF (`Order`, -1000/`Order`, 0)', $this->galleryCode);
 		foreach ($videos as $video) {
-			$video['Code'] = $youtube->GetCodeFromSource($video['SourceCode']);
+			$video['Code'] = $vkvideo->GetCodeFromSource($video['SourceCode']);
+			$video['Owner'] = $vkvideo->GetOwnerFromSource($video['SourceCode']);
 			$video['Alt'] = htmlspecialchars($video['Title'], ENT_QUOTES);
 			$content .= SetAtribs($elementVideo, $video);
 

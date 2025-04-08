@@ -4,7 +4,7 @@ if (getenv('DEV')) {
    $Config['Db']['Host']   = 'localhost';
    $Config['Db']['Login']  = 'root';
    $Config['Db']['Pswd']   = '';
-   $Config['Db']['DbName'] = 'smart';
+   $Config['Db']['DbName'] = 'smartenerg_new';
 } else {
    $Config['Db']['Host']   = 'localhost';
    $Config['Db']['Login']  = 'smartenerg_new';
