@@ -247,7 +247,7 @@ class company extends krn_abstract{
 			$video['Alt'] = htmlspecialchars($video['Title'], ENT_QUOTES);
 			$content .= SetAtribs($elementVideo, $video);
 
-			$modalVideo = new Modal('video', ['VideoId' => $video['Id']]);
+			$modalVideo = new Modal('video', ['Id' => 'video' . $video['Id'], 'VideoId' => $video['Id']]);
 			$Site->addModal($modalVideo->getModal());
 		}
 
